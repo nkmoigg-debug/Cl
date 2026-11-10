@@ -218,7 +218,7 @@ const OPEN=[25,26];
 const NS='http://www.w3.org/2000/svg';
 function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e}
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const KEY='nina-demo-v1';
+const KEY='nina-demo-v2';
 let S={done:[],found:{},hints:{},intro:false};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s)S=Object.assign(S,s)}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}

@@ -189,7 +189,7 @@ ITEMS.forEach((it,i)=>{
 });
 
 /* state */
-const KEY='nina-co-v1';
+const KEY='nina-co-v2';
 let found=new Set(),hints=3;
 try{const st=JSON.parse(localStorage.getItem(KEY)||'null');if(st){found=new Set(st.f||[]);hints=st.h??3}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify({f:[...found],h:hints}))}catch(e){}}
