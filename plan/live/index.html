@@ -1,0 +1,135 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Живая площадь — варианты</title><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet"><style>
+:root{--bg:#f6efe3;--card:#fffaf2;--ink:#2a211b;--mut:#6f6257;--red:#a3262a;--gold:#c8901f;--navy:#152038;--line:#e6d8c3;--green:#2f6b45;--chip:#f3e6d1}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{background:radial-gradient(120% 90% at 50% 0%,#24345a 0%,var(--navy) 60%,#0d1426 100%);color:#fff;padding:44px 0 36px;position:relative;overflow:hidden}
+header:before{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 20%,#fff8 50%,transparent 51%),radial-gradient(1.5px 1.5px at 70% 30%,#fff9 50%,transparent 51%),radial-gradient(2px 2px at 40% 70%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 88% 75%,#fff8 50%,transparent 51%),radial-gradient(1.5px 1.5px at 25% 85%,#fff7 50%,transparent 51%);pointer-events:none}
+.kick{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#f3c66b;font-weight:700}
+h1{font-family:Lora,serif;font-size:clamp(32px,8vw,46px);line-height:1.1;margin:8px 0 12px}
+header p{color:#d9def0;margin:0;max-width:560px}
+h2{font-family:Lora,serif;font-size:clamp(24px,6vw,30px);line-height:1.2;margin:44px 0 6px;color:var(--red)}
+h3{font-size:18px;margin:22px 0 6px}
+.lead{color:var(--mut);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:12px 0}
+.tldr{background:#fff;border:2px solid var(--gold);border-radius:18px;padding:18px 20px;margin-top:-22px;position:relative;box-shadow:0 10px 30px #0001}
+.tldr ol{margin:8px 0 0;padding-left:22px}.tldr li{margin:6px 0}
+ul{padding-left:20px}li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font-family:Lora,serif;font-size:26px;color:var(--navy);line-height:1.2}
+.stat span{font-size:14px;color:var(--mut)}
+.feat{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:10px 0}
+.num{width:44px;height:44px;border-radius:12px;background:var(--navy);color:#f3c66b;font:700 20px Lora,serif;display:flex;align-items:center;justify-content:center}
+.feat h3{margin:0 0 4px;font-size:17px}.feat p{margin:0;color:#3c322a}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--chip);color:#7a4f12;margin-left:6px;vertical-align:2px}
+.tag.must{background:#f7d9d6;color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chips span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td,th{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.tl{border-left:3px solid var(--gold);margin:10px 0 0 8px;padding-left:18px}
+.tl div{position:relative;margin:0 0 16px}
+.tl div:before{content:"";position:absolute;left:-26px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--bg)}
+.tl b{color:var(--navy)}
+.q{background:#fff;border:1px dashed var(--red);border-radius:14px;padding:12px 16px;margin:10px 0}
+.q b{color:var(--red)}
+figure{margin:14px 0}figure img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
+figcaption{font-size:14px;color:var(--mut);margin-top:6px}
+.loop{width:100%;height:auto;display:block}
+.src{font-size:14px;color:var(--mut)}.src a{color:var(--navy);word-break:break-word}
+.quote{border-left:3px solid var(--gold);padding:2px 0 2px 14px;color:#4a3e33;font-style:italic;margin:10px 0}
+.flow .step{display:flex;gap:12px;align-items:center;background:var(--navy);color:#d9def0;border-radius:14px;padding:10px 14px;font-size:14px}.flow .step b{color:#f3c66b;font-size:16px}.flow .step span{flex:none;width:30px;height:30px;border-radius:50%;background:#f3c66b;color:var(--navy);font:700 16px Lora,serif;display:flex;align-items:center;justify-content:center}.flow .step.red{background:var(--red);color:#ffe2df}.flow .step.red b{color:#fff}.flow .arr{text-align:center;color:var(--gold);font-weight:700;margin:2px 0}.flow .back{margin-top:8px;color:var(--mut)}
+footer{padding:36px 0 50px;color:var(--mut);font-size:14px}
+a{color:var(--red)}
+table{display:block;overflow-x:auto}</style></head><body><header><div class="wrap">
+  <div class="kick">Живая площадь · ответы на ночные вопросы</div>
+  <h1>Общая площадь: как сделать и сколько стоит</h1>
+  <p>Большая снежная площадь, лотки-уровни, ходишь своим героем и видишь других игроков. Ниже три варианта по цене, где игра будет жить и сколько денег нужно на старте.</p>
+</div></header>
+<main class="wrap">
+<div class="tldr">
+  <b>Короткий ответ</b>
+  <ol>
+    <li><b>Общий вид можно оставить и не платить за него как за онлайн-игру.</b> Предлагаю площадь «как живая»: другие игроки — настоящие, со своими героями, городами и ёлками, но двигаются не синхронно в реальном времени. По расходам это почти как «только рейтинги».</li>
+    <li><b>Место и память тут почти ни при чём.</b> Дорого держать постоянное соединение с каждым игроком, чтобы все видели друг друга без задержки. Это и есть разница в цене.</li>
+    <li><b>Где жить:</b> сайт плюс мини-приложение в MAX и VK. Приложение в сторах не нужно.</li>
+    <li><b>На старте по моей оценке:</b> 5–10 тыс. ₽ на хостинг и домен плюс ~$25–30 на картинки. Реклама по желанию.</li>
+  </ol>
+</div>
+
+<h2>Как это выглядит</h2>
+<figure><img src="square.jpg" alt="Схема площади: лотки-уровни, герои игроков с городами, ёлки игроков, карточка игрока с кнопками" loading="lazy"><figcaption>Схема, не графика. Лотки — уровни, новый открывается каждый день. Ты и Нина рядом, остальные — игроки из разных городов, внизу растут их ёлки. Нажал на героя — карточка: сколько ёлок, на каком лотке, кнопки «Помахать», «Снежок», «Подарить».</figcaption></figure>
+<div class="card"><ul>
+  <li><b>Ходьба:</b> нажимаешь на место, и герой идёт туда. Одной рукой, на любом телефоне.</li>
+  <li><b>Лоток = уровень.</b> Подходишь к лотку и попадаешь на его прилавок крупно: там 30 предметов и зум. Это наш поиск предметов.</li>
+  <li><b>Новый лоток каждый день:</b> «Открылся лоток 5!», и все идут к нему.</li>
+  <li><b>Другие игроки:</b> нажал на героя — видишь город, сколько ёлок нарядил, на каком лотке, сколько подарил.</li>
+  <li><b>Действия без чата:</b> помахать, кинуть снежок, подарить игру. Свободного чата нет: так не нужна модерация и никто никого не обидит.</li>
+  <li><b>Ёлки игроков растут на площади.</b> К концу декабря площадь превращается в лес наряженных ёлок, и это виден общий прогресс.</li>
+</ul></div>
+
+<h2>Три варианта по цене</h2>
+<div class="card">
+<table>
+<tr><th></th><th>А. Только рейтинги</th><th>Б. Площадь «как живая» ⭐</th><th>В. Живая в реальном времени</th></tr>
+<tr><td><b>Что видит игрок</b></td><td>списки, счётчики, карта подарков</td><td>площадь с настоящими игроками, они гуляют сами по себе; друзья появляются рядом через несколько секунд</td><td>все видят друг друга без задержки, ходят вместе</td></tr>
+<tr><td><b>Сервер</b></td><td>маленький, платишь за запросы</td><td>тот же маленький, раз в 15–30 секунд подгружает свежих игроков</td><td>постоянные соединения, несколько серверов</td></tr>
+<tr><td><b>Расходы на сервер в декабре</b> (оценка при 300 тыс. игроков)</td><td>1–5 тыс. ₽</td><td>2–6 тыс. ₽</td><td>15–30 тыс. ₽ и выше</td></tr>
+<tr><td><b>Разработка</b></td><td>быстро</td><td>+2–3 дня к А</td><td>+6–8 дней к А и нагрузочные тесты</td></tr>
+<tr><td><b>Риск в декабре</b></td><td>низкий</td><td>низкий: если сервер устал, площадь просто реже обновляется</td><td>высокий: при наплыве игроков может лечь в самый пик</td></tr>
+</table>
+</div>
+<div class="card" style="border-color:var(--gold)"><b>Предлагаю вариант Б.</b> Он даёт главное из твоей идеи: «я на площади, вокруг люди из разных городов, нажал — увидел, сколько у него ёлок». При этом стоит как рейтинги. Помахал или кинул снежок — человек увидит это, когда откроет игру: «Тебе кинул снежок гость из Тулы». Игру строим так, чтобы позже можно было включить настоящую прогулку вживую, например только с друзьями, если игра взлетит.</div>
+
+<h2>Куда поместится такой формат</h2>
+<div class="card">
+<table>
+<tr><th>Где</th><th>Зачем</th></tr>
+<tr><td><b>Сайт</b> на своём домене</td><td>Основа. Одна ссылка открывается в любом браузере и в любом мессенджере. Здесь же оплата через ИП.</td></tr>
+<tr><td><b>MAX</b>, мини-приложение</td><td>Главный мессенджер для рассылки подарков: по данным VK на октябрь 2026, 109 млн человек в месяц и 90 млн в день. Открывается прямо из чата без установки. Условия публикации на платформе MAX для партнёров уточню завтра.</td></tr>
+<tr><td><b>VK</b>, мини-приложение</td><td>Друзья, сообщества, городские паблики. Используем для распространения, а оплату принимаем на сайте.</td></tr>
+<tr><td><b>Telegram</b></td><td>Та же ссылка. С начала 2026 года Telegram в России замедляют, но аудитория всё ещё большая.</td></tr>
+<tr><td><b>Яндекс Игры</b></td><td>Дополнительный поток игроков. Аудитория — в основном женщины, много людей старше 55.</td></tr>
+<tr><td>Приложение в App Store или Google Play</td><td><b>Не нужно.</b> Проверка занимает недели, человеку надо устанавливать (половина отвалится), а покупки внутри приложений в России работают плохо.</td></tr>
+</table>
+<p style="margin-bottom:0"><b>Важно:</b> WhatsApp в России фактически не работает с конца 2025 года, поэтому кнопку «Отправить в WhatsApp» не делаем. Основные кнопки: MAX, VK, Telegram, «Скопировать ссылку».</p>
+</div>
+
+<h2>Сколько денег на старте</h2>
+<p class="lead">Мои оценки по сегодняшним ценам. Точно посчитаю, когда выберем вариант.</p>
+<div class="card">
+<table>
+<tr><th>Статья</th><th>Вариант Б</th><th>Комментарий</th></tr>
+<tr><td>Домен .ru</td><td>несколько сотен ₽ в год</td><td>проверим свободные названия</td></tr>
+<tr><td>Раздача файлов игры (CDN)</td><td>~1,5–5 тыс. ₽</td><td>0,96 ₽ за ГБ у Yandex Cloud CDN. Простая графика — лёгкая игра: 300 тыс. игроков ≈ 1,5–5 ТБ</td></tr>
+<tr><td>Сервер и база</td><td>2–6 тыс. ₽ в месяц</td><td>платишь за запросы, в ноябре почти ноль</td></tr>
+<tr><td>Картинки в ChatPlace</td><td>~$15–30</td><td>с простой графикой ближе к $15. Сейчас на балансе $6,52, лимит обновится 7 декабря</td></tr>
+<tr><td>Приём оплат</td><td>0 ₽ на старте</td><td>обычно без абонплаты, процент с каждого платежа</td></tr>
+<tr><td>Реклама и посевы</td><td>по желанию</td><td>можно стартовать бесплатно: подарки, свои чаты, паблики</td></tr>
+<tr><td colspan="2"><b>Итого на старте</b></td><td><b>~5–10 тыс. ₽ + картинки</b> (вариант В: ещё +15–30 тыс. ₽ в декабре)</td></tr>
+</table>
+</div>
+<div class="card"><b>Чем проще графика, тем дешевле всё:</b> меньше картинок, легче игра, меньше трафик, быстрее открывается на слабом телефоне и при плохом интернете. Красоту даём механикой: салютами, снежками, лесом ёлок, картой подарков.</div>
+
+<h2>Что нужно от тебя завтра</h2>
+<div class="q"><b>1.</b> Вариант <b>Б</b> («как живая») — ок?</div>
+<div class="q"><b>2.</b> Аккаунт в <b>Yandex Cloud</b> на твоё ИП: есть или заводим? Я подготовлю всё остальное, но регистрацию и оплату делаешь ты.</div>
+<div class="q"><b>3.</b> Бизнес-аккаунт в <b>MAX</b> и сообщество в <b>VK</b> под игру: заводим?</div>
+<div class="q"><b>4.</b> Пополнить <b>ChatPlace</b> на $15–30.</div>
+
+<h2>Источники</h2>
+<div class="src"><ul>
+  <li><a href="https://yandex.cloud/en-ru/docs/cdn/pricing">Yandex Cloud CDN: тарифы (0,96 ₽/ГБ)</a></li>
+  <li><a href="https://tproger.ru/articles/oblachnye-servery-v-rossii-sravnivaem-provajderov-na-odinakovoj">Tproger: цены облачных серверов в России</a></li>
+  <li><a href="https://ru.themoscowtimes.com/2026/10/28/razrabotchik-max-zayavil-chto-v-gosmessendzher-udalos-zagnat-140-millionov-chelovek-a209869">The Moscow Times: аудитория MAX, октябрь 2026</a></li>
+  <li><a href="https://ru.themoscowtimes.com/2026/01/16/roskomnadzor-nachal-chastichno-blokirovat-telegram-a184705">The Moscow Times: замедление Telegram, январь 2026</a></li>
+  <li><a href="https://plugin-frontend.meduza.io/en/feature/2026/02/10/telegram-is-one-of-the-last-messaging-apps-in-russia-that-the-state-doesn-t-control-did-the-kremlin-just-block-it-for-good">Meduza: статус Telegram в России, февраль 2026</a></li>
+  <li><a href="https://www.sostav.ru/blogs/293353/103270">Sostav: мини-приложения в MAX</a></li>
+  <li><a href="https://yandex.ru/project/games/for-developers">Яндекс Игры: аудитория</a></li>
+</ul></div>
+</main>
+<footer><div class="wrap"><a href="../">← Концепция</a> · <a href="../blocks/">Разбор блоков</a> · Живая площадь · 11 ноября 2026</div></footer>
+</body></html>
