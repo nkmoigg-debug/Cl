@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Nina & Co — тест большой карты</title>
+<style>
+html,body{margin:0;height:100%;background:#0f1630;overflow:hidden;overscroll-behavior:none}
+#v{position:fixed;inset:0;touch-action:none;overflow:hidden}
+#m{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none;max-width:none}
+#h{position:fixed;left:50%;top:max(10px,env(safe-area-inset-top));transform:translateX(-50%);background:#18213fcc;color:#f3efe6;font:600 14px system-ui,sans-serif;padding:8px 14px;border-radius:20px;pointer-events:none;transition:opacity .6s}
+</style></head><body>
+<div id="v"><img id="m" src="map.jpg" draggable="false"></div>
+<div id="h">Двигай пальцем · щипок — зум · двойной тап — приблизить</div>
+<script>
+const v=document.getElementById('v'),m=document.getElementById('m'),h=document.getElementById('h');
+let s=1,x=0,y=0,minS=1,maxS=4,IW=0,IH=0;
+const pts=new Map();let last=null,lastTap=0;
+function clamp(){const W=IW*s,H=IH*s,vw=v.clientWidth,vh=v.clientHeight;
+ x=W<=vw?(vw-W)/2:Math.min(0,Math.max(vw-W,x));
+ y=H<=vh?(vh-H)/2:Math.min(0,Math.max(vh-H,y));}
+function draw(){clamp();m.style.transform=`translate(${x}px,${y}px) scale(${s})`}
+function zoomAt(cx,cy,ns){ns=Math.min(maxS,Math.max(minS,ns));x=cx-(cx-x)*ns/s;y=cy-(cy-y)*ns/s;s=ns;draw()}
+function init(){IW=m.naturalWidth;IH=m.naturalHeight;minS=v.clientWidth/IW;s=minS;maxS=minS*4;x=0;y=0;draw()}
+m.complete&&m.naturalWidth?init():m.onload=init;addEventListener('resize',init);
+function hide(){h.style.opacity=0}
+v.addEventListener('pointerdown',e=>{v.setPointerCapture(e.pointerId);pts.set(e.pointerId,{x:e.clientX,y:e.clientY});last=null;hide();
+ const t=Date.now();if(pts.size==1&&t-lastTap<300){zoomAt(e.clientX,e.clientY,s<minS*1.8?minS*3:minS)}if(pts.size==1)lastTap=t});
+v.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;const p=pts.get(e.pointerId);
+ if(pts.size==1){x+=e.clientX-p.x;y+=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;draw()}
+ else if(pts.size==2){const o=[...pts.entries()].find(([id])=>id!=e.pointerId)[1];
+  const d0=Math.hypot(p.x-o.x,p.y-o.y);p.x=e.clientX;p.y=e.clientY;const d1=Math.hypot(p.x-o.x,p.y-o.y);
+  if(d0>0)zoomAt((p.x+o.x)/2,(p.y+o.y)/2,s*d1/d0)}});
+function up(e){pts.delete(e.pointerId)}
+v.addEventListener('pointerup',up);v.addEventListener('pointercancel',up);
+v.addEventListener('wheel',e=>{e.preventDefault();zoomAt(e.clientX,e.clientY,s*(e.deltaY<0?1.15:1/1.15))},{passive:false});
+</script></body></html>
